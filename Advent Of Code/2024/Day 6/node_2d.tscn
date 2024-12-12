@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://dx1ats2fiwdd4"]
+
+[ext_resource type="Texture2D" uid="uid://d0d1cfobtadhc" path="res://tiles/tile.png" id="2_kwh2j"]
+[ext_resource type="Texture2D" uid="uid://dtas7xxu3v48b" path="res://tiles/wall.png" id="3_opsk7"]
+[ext_resource type="Texture2D" uid="uid://b8740kx2mgh24" path="res://tiles/guard.png" id="4_f75j2"]
+[ext_resource type="Script" path="res://populate_map.gd" id="5_p5kg4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jn6to"]
+texture = ExtResource("2_kwh2j")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60djc"]
+texture = ExtResource("3_opsk7")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqebb"]
+texture = ExtResource("4_f75j2")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4hw6b"]
+sources/1 = SubResource("TileSetAtlasSource_60djc")
+sources/0 = SubResource("TileSetAtlasSource_jn6to")
+sources/2 = SubResource("TileSetAtlasSource_yqebb")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4hw6b")
+format = 2
+script = ExtResource("5_p5kg4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.3, 0.3)
